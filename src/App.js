@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import ProfileCreation from './ProfileCreation'; // Ensure this is the correct path to your new component
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
+<<<<<<< HEAD
   const [currentPage, setCurrentPage] = useState(1); // State for current page
   const [itemsPerPage] = useState(5); // Number of items per page
   const [displayedItems, setDisplayedItems] = useState([]); // State for displayed items
@@ -13,6 +16,15 @@ function App() {
     setCurrentPage(1); // Reset to first page when search term changes
     setDisplayText(event.target.value); // Update displayed text
     setShowPizzaImage(event.target.value.toLowerCase() === 'pizza'); // Check for "pizza" (lowercase)
+=======
+  const [displayText, setDisplayText] = useState('');
+  const [showPizzaImage, setShowPizzaImage] = useState(false);
+
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+    setDisplayText(event.target.value);
+    setShowPizzaImage(event.target.value.toLowerCase() === 'pizza');
+>>>>>>> c70416fdef348f7166c1fdfca9068529b4fb7b0c
   };
 
   // Sample data for pagination
@@ -32,52 +44,73 @@ function App() {
   }, [currentPage]); // Re-run whenever currentPage changes
 
   return (
-    <div className="App">
-      <h1 style={{ textAlign: 'center', color: '#007bff' }}>Search Bar</h1>
-      <style jsx>
-        {`
-          .search-wrapper {
-            display: flex;
-            justify-content: center;
-            margin: 20px auto;
-          }
+    <BrowserRouter>
+      <div className="App">
+        <h1 style={{ textAlign: 'center', color: '#007bff' }}>Search Bar</h1>
+        <style jsx>
+          {`
+            .search-wrapper {
+              display: flex;
+              justify-content: center;
+              margin: 20px auto;
+            }
 
-          .search-input {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-            box-sizing: border-box;
-            background-color: #f5f5f5;
-            color: #333;
-          }
+            .search-input {
+              display: block;
+              width: 100%;
+              padding: 10px;
+              border: 1px solid #ccc;
+              border-radius: 5px;
+              font-size: 16px;
+              box-sizing: border-box;
+              background-color: #f5f5f5;
+              color: #333;
+            }
 
-          .displayed-text {
-            text-align: center;
-            font-size: 36px;
-            color: red;
-            margin-top: 10px;
-          }
+            .displayed-text {
+              text-align: center;
+              font-size: 36px;
+              color: red;
+              margin-top: 10px;
+            }
 
-          .pizza-image {
-            display: block;
-            width: 500px;
-            height: auto;
-            margin: 10px auto;
-          }
-        `}
-      </style>
-      <div className="search-wrapper">
-        <input
-          type="text"
-          placeholder="Search..."
-          value={searchTerm}
-          onChange={handleSearchChange}
-          className="search-input"
-        />
+            .pizza-image {
+              display: block;
+              width: 500px;
+              height: auto;
+              margin: 10px auto;
+            }
+
+            button {
+              padding: 10px 20px;
+              font-size: 16px;
+              color: white;
+              background-color: #007bff;
+              border: none;
+              border-radius: 5px;
+              cursor: pointer;
+            }
+          `}
+        </style>
+        <div className="search-wrapper">
+          <input
+            type="text"
+            placeholder="Search..."
+            value={searchTerm}
+            onChange={handleSearchChange}
+            className="search-input"
+          />
+        </div>
+        <div className="displayed-text">{displayText || ''}</div>
+        {showPizzaImage && (
+          <img src="https://thumbs.dreamstime.com/b/sketch-smiling-italian-chef-holding-pizza-his-hand-style-vector-illustration-white-background-charming-74048679.jpg" alt="Pizza" className="pizza-image" />
+        )}
+        <Link to="/create-profile"><button>Create Profile</button></Link>
+        <Routes>
+          <Route path="/create-profile" element={<ProfileCreation />} />
+        </Routes>
       </div>
+<<<<<<< HEAD
       <div className="displayed-text">{displayText || ''}</div>
       {/* Displayed items */}
       <ul>
@@ -100,6 +133,9 @@ function App() {
         <img src="https://thumbs.dreamstime.com/b/sketch-smiling-italian-chef-holding-pizza-his-hand-style-vector-illustration-white-background-charming-74048679.jpg" alt="Pizza" className="pizza-image" />
       )}
     </div>
+=======
+    </BrowserRouter>
+>>>>>>> c70416fdef348f7166c1fdfca9068529b4fb7b0c
   );
 }
 
