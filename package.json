@@ -6,11 +6,8 @@
     "@testing-library/user-event": "^13.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-<<<<<<< HEAD
-=======
     "react-router-dom": "^6.23.0",
     "react-scripts": "5.0.1",
->>>>>>> c70416fdef348f7166c1fdfca9068529b4fb7b0c
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -39,13 +36,7 @@
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.4.2",
-<<<<<<< HEAD
-    "@testing-library/react": "^15.0.4",
-    "jest": "^29.7.0",
-    "react-scripts": "^5.0.1"
-=======
     "@testing-library/react": "^15.0.6",
     "jest": "^29.7.0"
->>>>>>> c70416fdef348f7166c1fdfca9068529b4fb7b0c
   }
 }
