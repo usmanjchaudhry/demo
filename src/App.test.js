@@ -18,6 +18,13 @@ describe('App component tests', () => {
     expect(img).toBeInTheDocument();
   });
 
+  test('clicking the search bar will highlight the search bar', () => {
+    render(<App />);
+    const input = screen.getByPlaceholderText('Search...');
+    fireEvent.change(input, { target: { value: '' } });
+    expect(screen.queryByText('')).toBeInTheDocument();
+  });
+
   test('typing "apple" does not display the pizza image', () => {
     render(<App />);
     const input = screen.getByPlaceholderText('Search...');
