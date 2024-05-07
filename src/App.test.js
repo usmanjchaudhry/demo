@@ -25,6 +25,13 @@ describe('App component tests', () => {
     expect(screen.queryByText('')).toBeInTheDocument();
   });
 
+  test('clicking the submit button will submit a response', () => {
+    render(<App />);
+    const input = screen.getByPlaceholderText('Search...');
+    fireEvent.change(input, { target: { value: 'Sandwich' } });
+    expect(screen.queryByText('Sandwich')).toBeInTheDocument();
+  });
+
   test('typing "apple" does not display the pizza image', () => {
     render(<App />);
     const input = screen.getByPlaceholderText('Search...');
